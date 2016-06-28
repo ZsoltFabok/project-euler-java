@@ -8,11 +8,11 @@ import java.util.stream.IntStream;
  * Find the sum of all the multiples of 3 or 5 below 1000.
  */
 public class Problem001 {
-    public int solution() {
-        return execute(1000);
+    public int execute() {
+        return calculate(1000);
     }
 
-    int execute(int limit) {
+    int calculate(int limit) {
         return IntStream.range(0, limit).filter(n -> n % 3 == 0 || n % 5 == 0).sum();
     }
 }
