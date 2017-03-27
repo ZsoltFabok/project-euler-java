@@ -16,7 +16,7 @@ public class Problem003 {
         return calculate(600851475143L);
     }
 
-    public Long calculate(long number) {
+    public long calculate(long number) {
         PrimeFactory factory = new PrimeFactory(new PrimeCheck());
 
         Long currentPrime = factory.next();

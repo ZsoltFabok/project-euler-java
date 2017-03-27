@@ -17,12 +17,12 @@ public class Problem003Test {
 
     @Test
     public void returnsThreeForThree() {
-        assertEquals(3L, (long) problem.calculate(3L));
+        assertEquals(3L, problem.calculate(3L));
     }
 
     @Test
     public void returnsThirteenFor9438() {
-        assertEquals(13L, (long) problem.calculate(9438L));
+        assertEquals(13L, problem.calculate(9438L));
     }
 
     @Test
