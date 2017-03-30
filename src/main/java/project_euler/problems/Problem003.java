@@ -2,10 +2,13 @@ package project_euler.problems;
 
 
 import project_euler.math.prime.PrimeCheck;
+import project_euler.math.prime.PrimeFactors;
 import project_euler.math.prime.PrimeFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /**
  The prime factors of 13195 are 5, 7, 13 and 29.
@@ -18,23 +21,12 @@ public class Problem003 {
 
     public long calculate(long number) {
         PrimeFactory factory = new PrimeFactory(new PrimeCheck());
+        PrimeFactors factors = new PrimeFactors(factory);
 
-        Long currentPrime = factory.next();
-        List<Long> primeFactors = new ArrayList<>();
-
-        while(number != 1) {
-            if (number % currentPrime == 0) {
-                primeFactors.add(currentPrime);
-                number = number / currentPrime;
-            } else {
-                currentPrime = factory.next();
-            }
-        }
-
-        return last(primeFactors);
+        return max(factors.primeFactors(number).keySet());
     }
 
-    private static Long last(List<Long> list) {
-        return list.get(list.size() - 1);
+    private static Long max(Set<Long> set) {
+        return Collections.max(set);
     }
 }
