@@ -6,6 +6,7 @@ import project_euler.math.prime.PrimeFactory;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.LongStream;
 
 /**
  * 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
@@ -52,6 +53,6 @@ public class Problem005 {
     }
 
     private static long pow(long exponent, long modulus) {
-        return Math.round(Math.pow(exponent, modulus));
+        return LongStream.range(1, modulus + 1).reduce(1L, (a, b) -> a * exponent);
     }
 }
