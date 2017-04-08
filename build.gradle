@@ -1,8 +1,13 @@
 apply plugin: 'java'
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2.1'
+}
+
 repositories {
     mavenCentral()
 }
+
 dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:2.7.19'
