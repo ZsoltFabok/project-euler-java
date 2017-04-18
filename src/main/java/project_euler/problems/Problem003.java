@@ -4,6 +4,7 @@ package project_euler.problems;
 import project_euler.math.prime.PrimeCheck;
 import project_euler.math.prime.PrimeFactors;
 import project_euler.math.prime.PrimeFactory;
+import project_euler.math.prime.PrimeRepository;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +21,11 @@ public class Problem003 {
     }
 
     public long calculate(long number) {
-        PrimeFactory factory = new PrimeFactory(new PrimeCheck());
+        // FIXME better injection
+        PrimeRepository repository1 = new PrimeRepository("data/prime_numbers.txt");
+        PrimeRepository repository2 = new PrimeRepository("data/prime_numbers.txt");
+
+        PrimeFactory factory = new PrimeFactory(new PrimeCheck(repository1), repository2);
         PrimeFactors factors = new PrimeFactors(factory);
 
         return max(factors.primeFactors(number).keySet());

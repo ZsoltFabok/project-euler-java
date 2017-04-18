@@ -3,6 +3,7 @@ package project_euler.problems;
 import project_euler.math.prime.PrimeCheck;
 import project_euler.math.prime.PrimeFactors;
 import project_euler.math.prime.PrimeFactory;
+import project_euler.math.prime.PrimeRepository;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +34,11 @@ public class Problem005 {
      * the result.
      */
     public long calculate(int upperLimit) {
-        PrimeFactory factory = new PrimeFactory(new PrimeCheck());
+        // FIXME better injection
+        PrimeRepository repository1 = new PrimeRepository("data/prime_numbers.txt");
+        PrimeRepository repository2 = new PrimeRepository("data/prime_numbers.txt");
+
+        PrimeFactory factory = new PrimeFactory(new PrimeCheck(repository1), repository2);
         PrimeFactors factors = new PrimeFactors(factory);
 
         Map<Long, Long> primeFactorsWithOccurrences = new HashMap<>();

@@ -2,6 +2,7 @@ package project_euler.problems;
 
 import project_euler.math.prime.PrimeCheck;
 import project_euler.math.prime.PrimeFactory;
+import project_euler.math.prime.PrimeRepository;
 
 
 /**
@@ -15,8 +16,12 @@ public class Problem007 {
     }
 
     public long calculate(int index) {
-        PrimeCheck check = new PrimeCheck();
-        PrimeFactory factory = new PrimeFactory(check);
+        // FIXME better injection
+        PrimeRepository repository1 = new PrimeRepository("data/prime_numbers.txt");
+        PrimeRepository repository2 = new PrimeRepository("data/prime_numbers.txt");
+
+        PrimeCheck check = new PrimeCheck(repository1);
+        PrimeFactory factory = new PrimeFactory(check, repository2);
 
         for (int i = 0; i < (index - 1); i++) {
             factory.next();

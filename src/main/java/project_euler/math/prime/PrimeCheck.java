@@ -1,12 +1,14 @@
 package project_euler.math.prime;
 
-
 import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class PrimeCheck {
+    private final PrimeRepository repository;
+
+    public PrimeCheck(PrimeRepository repository) {
+        this.repository = repository;
+    }
+
     /** uses Fermat's little theorem (https://en.wikipedia.org/wiki/Fermat's_little_theorem) */
     public boolean isPrime(Long number) {
         if (number > 2) {
@@ -23,13 +25,11 @@ public class PrimeCheck {
         }
     }
 
-    /** these are the divisors of pseudo primes before 104729 */
-    private static final List<Integer> PSEUDO_PRIME_DIVISORS =
-            Arrays.asList(3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 43, 53, 59, 61, 71, 73, 89, 97, 101, 103, 127, 149, 151, 157, 167, 229);
-
-    private static boolean isPseudoPrime(long number) {
-        long s = Math.round(Math.sqrt(number));
-        for(long divisor : PSEUDO_PRIME_DIVISORS.stream().filter(i -> i < s).collect(Collectors.toList())) {
+    /** divides with all the primes that are lower than sqrt(number) */
+    private boolean isPseudoPrime(long number) {
+        int s = (int) Math.round(Math.sqrt(number));
+        // FIXME here I assume that the cache contains the primes, but what should happen when it does not?
+        for(long divisor : repository.getInRange(2, s)) {
             if (number % divisor == 0) {
                 return true;
             }
