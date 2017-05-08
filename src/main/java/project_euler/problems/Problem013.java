@@ -7,6 +7,11 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
+ *
+ * See data/problem013.txt
+ */
 public class Problem013 {
     public long execute() {
         return calculate();
