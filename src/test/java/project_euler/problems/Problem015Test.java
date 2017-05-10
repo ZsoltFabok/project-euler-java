@@ -1,7 +1,6 @@
 package project_euler.problems;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -19,8 +18,8 @@ public class Problem015Test {
         assertEquals(6, problem.calculate(2));
     }
 
-    @Ignore
+    @Test
     public void solution() {
-        assertEquals(-1, problem.execute());
+        assertEquals(137846528820L, problem.execute());
     }
 }
