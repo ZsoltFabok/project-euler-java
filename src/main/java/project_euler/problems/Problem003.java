@@ -1,6 +1,7 @@
 package project_euler.problems;
 
 
+import project_euler.di.ProblemDi;
 import project_euler.math.prime.PrimeCheck;
 import project_euler.math.prime.PrimeFactors;
 import project_euler.math.prime.PrimeFactory;
@@ -15,18 +16,13 @@ import java.util.Set;
  The prime factors of 13195 are 5, 7, 13 and 29.
  What is the largest prime factor of the number 600851475143 ?
  */
-public class Problem003 {
+public class Problem003 extends ProblemDi {
     public long execute() {
         return calculate(600851475143L);
     }
 
     public long calculate(long number) {
-        // FIXME better injection
-        PrimeRepository repository1 = new PrimeRepository("data/prime_numbers.txt");
-        PrimeRepository repository2 = new PrimeRepository("data/prime_numbers.txt");
-
-        PrimeFactory factory = new PrimeFactory(new PrimeCheck(repository1), repository2);
-        PrimeFactors factors = new PrimeFactors(factory);
+        PrimeFactors factors = injector.getInstance(PrimeFactors.class);
 
         return max(factors.primeFactors(number).keySet());
     }

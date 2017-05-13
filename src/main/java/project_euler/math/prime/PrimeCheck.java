@@ -1,10 +1,13 @@
 package project_euler.math.prime;
 
+import com.google.inject.Inject;
+
 import java.math.BigInteger;
 
 public class PrimeCheck {
     private final PrimeRepository repository;
 
+    @Inject
     public PrimeCheck(PrimeRepository repository) {
         this.repository = repository;
     }

@@ -1,9 +1,7 @@
 package project_euler.problems;
 
-import project_euler.math.prime.PrimeCheck;
+import project_euler.di.ProblemDi;
 import project_euler.math.prime.PrimeFactors;
-import project_euler.math.prime.PrimeFactory;
-import project_euler.math.prime.PrimeRepository;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +12,7 @@ import java.util.stream.LongStream;
  *
  * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
  */
-public class Problem005 {
+public class Problem005 extends ProblemDi {
 
     public long execute() {
         return calculate(20);
@@ -34,12 +32,7 @@ public class Problem005 {
      * the result.
      */
     public long calculate(int upperLimit) {
-        // FIXME better injection
-        PrimeRepository repository1 = new PrimeRepository("data/prime_numbers.txt");
-        PrimeRepository repository2 = new PrimeRepository("data/prime_numbers.txt");
-
-        PrimeFactory factory = new PrimeFactory(new PrimeCheck(repository1), repository2);
-        PrimeFactors factors = new PrimeFactors(factory);
+        PrimeFactors factors = injector.getInstance(PrimeFactors.class);
 
         Map<Long, Long> primeFactorsWithOccurrences = new HashMap<>();
 

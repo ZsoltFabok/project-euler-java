@@ -1,12 +1,15 @@
 package project_euler.math;
 
 
+import com.google.inject.Inject;
+
 import java.math.BigInteger;
 
 public class Combinatorics {
 
     private final Factorial factorial;
 
+    @Inject
     public Combinatorics(Factorial factorial) {
         this.factorial = factorial;
     }

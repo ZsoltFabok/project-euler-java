@@ -1,12 +1,15 @@
 package project_euler.math.prime;
 
 
+import com.google.inject.Inject;
+
 public class PrimeFactory {
     private final PrimeCheck check;
     private PrimeRepository repository;
     private Long currentPrime = 1L;
     private boolean fromCache;
 
+    @Inject
     public PrimeFactory(PrimeCheck check, PrimeRepository repository) {
         this.check = check;
         this.repository = repository;

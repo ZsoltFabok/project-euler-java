@@ -1,6 +1,8 @@
 package project_euler.math.prime;
 
 
+import com.google.inject.Inject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +10,7 @@ public class PrimeFactors {
 
     private final PrimeFactory factory;
 
+    @Inject
     public PrimeFactors(PrimeFactory factory) {
         this.factory = factory;
     }
