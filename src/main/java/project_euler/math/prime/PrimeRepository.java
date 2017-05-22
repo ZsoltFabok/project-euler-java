@@ -1,11 +1,10 @@
 package project_euler.math.prime;
 
-import java.io.BufferedReader;
+import project_euler.util.DataFile;
+
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,17 +57,7 @@ public class PrimeRepository {
     }
 
     private static List<Long> read(String filename) {
-        List<Long> cache = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                cache.add(Long.parseLong(line));
-            }
-        } catch(IOException e) {
-            // work with an empty cache
-        }
-        return cache;
+        return new DataFile().loadFile(filename).stream().map(Long::parseLong).collect(Collectors.toList());
     }
 
     private static void write(String filename, List<Long> entries) {

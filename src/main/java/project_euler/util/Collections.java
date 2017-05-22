@@ -2,6 +2,7 @@ package project_euler.util;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,5 +25,9 @@ public class Collections {
         List<T> newList = new ArrayList<>(list);
         newList.add(0, number);
         return newList;
+    }
+
+    public static List<Integer> toIntegerList(String content) {
+        return Arrays.stream(content.split(" ")).map(Integer::parseInt).collect(Collectors.toList());
     }
 }

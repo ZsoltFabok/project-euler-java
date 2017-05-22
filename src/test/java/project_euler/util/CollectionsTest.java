@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static project_euler.util.Collections.append;
 import static project_euler.util.Collections.sort;
 import static project_euler.util.Collections.subList;
+import static project_euler.util.Collections.toIntegerList;
 
 public class CollectionsTest {
 
@@ -35,5 +36,10 @@ public class CollectionsTest {
     public void appendWorksTheOtherWay() {
         List<Integer> list = java.util.Collections.singletonList(1);
         assertEquals(Arrays.asList(2, 1), append(2, list));
+    }
+
+    @Test
+    public void toIntegerListWorks() {
+        assertEquals(Arrays.asList(1, 2, 3), toIntegerList("01 2 3"));
     }
 }

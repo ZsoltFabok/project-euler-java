@@ -1,9 +1,8 @@
 package project_euler.problems;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import project_euler.util.DataFile;
+
 import java.util.Arrays;
 
 
@@ -29,17 +28,6 @@ public class Problem008 {
     }
 
     private String loadDigits() {
-        StringBuilder content = new StringBuilder();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("data/problem008.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line);
-            }
-        } catch (IOException exception) {
-            // unable to read data file, let the content be empty
-        }
-
-        return content.toString();
+        return new DataFile().loadData("problem008").stream().reduce("", (a, b) -> a + b);
     }
 }

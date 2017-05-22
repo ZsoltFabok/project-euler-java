@@ -1,12 +1,9 @@
 package project_euler.problems;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import project_euler.util.DataFile;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Problem011 {
     public long execute() {
@@ -14,7 +11,7 @@ public class Problem011 {
     }
 
     public long calculate(int numberOfDigits) {
-        List<List<Integer>> data = loadDigits();
+        List<List<Integer>> data = new DataFile().loadNumbers("problem011");
 
         long max = 0;
         for (int i = 0; i < data.size(); i++) {
@@ -93,21 +90,5 @@ public class Problem011 {
 
     private long productOfDigits(List<Integer> subList) {
         return subList.stream().reduce(1, (a, b) -> a * b);
-    }
-
-    private List<List<Integer>> loadDigits() {
-        List<List<Integer>> digits = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("data/problem011.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                digits.add(Arrays.stream(line.split(" ")).map(Integer::parseInt).collect(Collectors.toList()));
-
-            }
-        } catch (IOException exception) {
-            // unable to read data file, let the content be empty
-        }
-
-        return digits;
     }
 }

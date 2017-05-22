@@ -1,10 +1,9 @@
 package project_euler.problems;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import project_euler.util.Collections;
+import project_euler.util.DataFile;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +22,7 @@ import java.util.stream.Collectors;
  */
 public class Problem018 {
     public long execute() {
-        return calculate(loadPyramid());
+        return calculate(new DataFile().loadNumbers("problem018"));
     }
 
     public int calculate(List<List<Integer>> pyramid) {
@@ -86,20 +85,7 @@ public class Problem018 {
     }
 
     private static List<List<Integer>> loadPyramid() {
-        List<List<Integer>> pyramid = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("data/problem018.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                List<Integer> level = Arrays.stream(line.split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-                pyramid.add(level);
-
-            }
-        } catch (IOException exception) {
-            // unable to read data file, let the content be empty
-        }
-
-        return pyramid;
+        return new DataFile().loadData("problem018").stream()
+                .map(Collections::toIntegerList).collect(Collectors.toList());
     }
-
 }

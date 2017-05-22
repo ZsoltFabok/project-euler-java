@@ -1,11 +1,10 @@
 package project_euler.problems;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import project_euler.util.DataFile;
+
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
@@ -24,17 +23,6 @@ public class Problem013 {
     }
 
     private List<BigInteger> loadDigits() {
-        List<BigInteger> numbers = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("data/problem013.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                numbers.add(new BigInteger(line));
-            }
-        } catch (IOException exception) {
-            // unable to read data file, let the content be empty
-        }
-
-        return numbers;
+        return new DataFile().loadData("problem013").stream().map(BigInteger::new).collect(Collectors.toList());
     }
 }
