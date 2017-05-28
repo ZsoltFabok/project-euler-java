@@ -1,11 +1,9 @@
 package project_euler.problems;
 
-import project_euler.util.Collections;
 import project_euler.util.DataFile;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * By starting at the top of the triangle below and moving to adjacent numbers on the row below,
@@ -82,10 +80,5 @@ public class Problem018 {
             newEntry.addAll(l);
         }
         return newList;
-    }
-
-    private static List<List<Integer>> loadPyramid() {
-        return new DataFile().loadData("problem018").stream()
-                .map(Collections::toIntegerList).collect(Collectors.toList());
     }
 }
