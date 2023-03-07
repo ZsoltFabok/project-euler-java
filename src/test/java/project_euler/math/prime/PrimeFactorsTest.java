@@ -1,13 +1,13 @@
 package project_euler.math.prime;
 
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -17,7 +17,7 @@ public class PrimeFactorsTest {
     private PrimeFactors factors;
     private PrimeFactory factory;
 
-    @Before
+    @BeforeEach
     public void setup() {
         factory = mock(PrimeFactory.class);
         factors = new PrimeFactors(factory);

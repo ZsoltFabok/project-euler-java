@@ -1,46 +1,41 @@
 package project_euler.util;
 
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 public class Converter {
     @SuppressWarnings("serial")
     private static Map<Integer, String> numbers() {
-        return Collections.unmodifiableMap(new HashMap<Integer, String>() {
-            {
-                put(0, "");
-                put(1, "one");
-                put(2, "two");
-                put(3, "three");
-                put(4, "four");
-                put(5, "five");
-                put(6, "six");
-                put(7, "seven");
-                put(8, "eight");
-                put(9, "nine");
-                put(10, "ten");
-                put(11, "eleven");
-                put(12, "twelve");
-                put(13, "thirteen");
-                put(14, "fourteen");
-                put(15, "fifteen");
-                put(16, "sixteen");
-                put(17, "seventeen");
-                put(18, "eighteen");
-                put(19, "nineteen");
-                put(20, "twenty");
-                put(30, "thirty");
-                put(40, "forty");
-                put(50, "fifty");
-                put(60, "sixty");
-                put(70, "seventy");
-                put(80, "eighty");
-                put(90, "ninety");
-                put(100, "hundred");
-                put(1000, "thousand");
-            }
-        });
+        return Map.ofEntries(
+                Map.entry(0, ""),
+                Map.entry(1, "one"),
+                Map.entry(2, "two"),
+                Map.entry(3, "three"),
+                Map.entry(4, "four"),
+                Map.entry(5, "five"),
+                Map.entry(6, "six"),
+                Map.entry(7, "seven"),
+                Map.entry(8, "eight"),
+                Map.entry(9, "nine"),
+                Map.entry(10, "ten"),
+                Map.entry(11, "eleven"),
+                Map.entry(12, "twelve"),
+                Map.entry(13, "thirteen"),
+                Map.entry(14, "fourteen"),
+                Map.entry(15, "fifteen"),
+                Map.entry(16, "sixteen"),
+                Map.entry(17, "seventeen"),
+                Map.entry(18, "eighteen"),
+                Map.entry(19, "nineteen"),
+                Map.entry(20, "twenty"),
+                Map.entry(30, "thirty"),
+                Map.entry(40, "forty"),
+                Map.entry(50, "fifty"),
+                Map.entry(60, "sixty"),
+                Map.entry(70, "seventy"),
+                Map.entry(80, "eighty"),
+                Map.entry(90, "ninety"),
+                Map.entry(100, "hundred"),
+                Map.entry(1000, "thousand"));
     }
 
     public String toLetters(int number) {

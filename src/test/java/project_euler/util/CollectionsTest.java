@@ -1,11 +1,11 @@
 package project_euler.util;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static project_euler.util.Collections.append;
 import static project_euler.util.Collections.sort;
 import static project_euler.util.Collections.subList;

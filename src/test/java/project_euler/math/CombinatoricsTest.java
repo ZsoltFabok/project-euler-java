@@ -1,11 +1,12 @@
 package project_euler.math;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -15,7 +16,7 @@ public class CombinatoricsTest {
     private Combinatorics combinatorics;
     private Factorial factorial;
 
-    @Before
+    @BeforeEach
     public void setup() {
         factorial = mock(Factorial.class);
         combinatorics = new Combinatorics(factorial);

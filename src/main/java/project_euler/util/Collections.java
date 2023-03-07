@@ -4,15 +4,18 @@ package project_euler.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class Collections {
+    private Collections() {
+    }
+
     public static <T> List<T> subList(List<T> list, int fromIndex, int toIndex) {
         return list.subList(fromIndex, toIndex);
     }
 
     public static <T> List<T> sort(List<T> list) {
-        return list.stream().sorted().collect(Collectors.toList());
+        return list.stream().sorted().toList();
     }
 
     public static <T> List<T> append(List<T> list, T number) {
@@ -28,6 +31,6 @@ public class Collections {
     }
 
     public static List<Integer> toIntegerList(String content) {
-        return Arrays.stream(content.split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        return Arrays.stream(content.split(" ")).map(Integer::parseInt).toList();
     }
 }

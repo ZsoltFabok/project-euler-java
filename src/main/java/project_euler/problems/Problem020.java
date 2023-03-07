@@ -3,7 +3,6 @@ package project_euler.problems;
 import project_euler.math.Factorial;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Problem020 {
@@ -12,10 +11,10 @@ public class Problem020 {
     }
 
     public int calculate(int number) {
-        return toDigits(new Factorial().factorial(number).toString()).stream().reduce(0, (a, b) -> a + b);
+        return toDigits(new Factorial().factorial(number).toString()).stream().reduce(0, Integer::sum);
     }
 
     private static List<Integer> toDigits(String number) {
-        return Stream.of(number.split("")).map(Integer::valueOf).collect(Collectors.toList());
+        return Stream.of(number.split("")).map(Integer::valueOf).toList();
     }
 }

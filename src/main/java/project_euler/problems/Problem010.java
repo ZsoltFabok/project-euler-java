@@ -22,7 +22,7 @@ public class Problem010 {
 
         long sum = 0;
         long prime;
-        while((prime = factory.next()) < upperLimit) {
+        while ((prime = factory.next()) < upperLimit) {
             sum += prime;
         }
 

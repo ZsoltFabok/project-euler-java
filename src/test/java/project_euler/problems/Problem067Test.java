@@ -1,18 +1,18 @@
 package project_euler.problems;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Problem067Test {
     private Problem067 problem;
 
-    @Before
+    @BeforeEach
     public void setup() {
         problem = new Problem067();
     }
-    
+
     @Test
     public void solution() {
         assertEquals(7273, problem.execute());

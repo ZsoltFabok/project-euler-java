@@ -42,7 +42,7 @@ public class Problem014 {
     private static List<Long> collatzChan(long number) {
         List<Long> list = new ArrayList<>();
 
-        while(number > 1) {
+        while (number > 1) {
             list.add(number);
 
             if (number % 2 == 0) {

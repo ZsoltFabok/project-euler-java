@@ -14,7 +14,7 @@ public class Problem008 {
     public long calculate(int numberOfDigits) {
         String data = loadDigits();
         long max = 0;
-        for(int i = 0; i < (data.length() - numberOfDigits); i++) {
+        for (int i = 0; i < (data.length() - numberOfDigits); i++) {
             long value = productOfDigits(data.substring(i, i + numberOfDigits));
             if (value > max) {
                 max = value;

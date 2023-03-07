@@ -6,7 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class PrimeRepository {
     private final String filename;
@@ -44,7 +44,7 @@ public class PrimeRepository {
 
     private void markCacheToWriteToDisk() {
         if (!diskContentNeedsUpdate) {
-            // FIXME inject
+            // FIXME inject | NOSONAR
             Runtime.getRuntime().addShutdownHook(new Thread(() -> write(filename, cache)));
             diskContentNeedsUpdate = true;
         }
@@ -57,25 +57,23 @@ public class PrimeRepository {
     }
 
     private static List<Long> read(String filename) {
-        return new DataFile().loadFile(filename).stream().map(Long::parseLong).collect(Collectors.toList());
+        return new DataFile().loadFile(filename).stream().map(Long::parseLong).toList();
     }
 
     private static void write(String filename, List<Long> entries) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (Long entry : entries) {
                 writer.write(Long.toString(entry));
                 writer.newLine();
             }
             writer.flush();
-            writer.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             // shit happens
         }
     }
 
     public List<Long> getInRange(int start, int end) {
         loadCacheIfNecessary();
-        return cache.stream().filter(i -> i >= start && i <= end).collect(Collectors.toList());
+        return cache.stream().filter(i -> i >= start && i <= end).toList();
     }
 }

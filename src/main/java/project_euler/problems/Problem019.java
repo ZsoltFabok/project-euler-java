@@ -22,6 +22,7 @@ public class Problem019 {
         return calculate();
     }
 
+    @SuppressWarnings({"java:S3776"})
     public int calculate() {
         int sundayOnTheFirstOfTheMonth = 0;
         int dayInWeek = 2;
@@ -44,9 +45,9 @@ public class Problem019 {
     }
 
     private static int numberOfDays(int year, int month) {
-        if (Arrays.asList(1,3,5,7,8,10,12).contains(month)) {
+        if (Arrays.asList(1, 3, 5, 7, 8, 10, 12).contains(month)) {
             return 31;
-        } else if (Arrays.asList(4,6,9,11).contains(month)) {
+        } else if (Arrays.asList(4, 6, 9, 11).contains(month)) {
             return 30;
         } else {
             if ((year % 4 == 0) && (year % 100 != 0)) {

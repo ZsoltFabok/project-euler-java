@@ -1,15 +1,15 @@
 package project_euler.problems;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Problem012Test {
     private Problem012 problem;
 
-    @Before
+    @BeforeEach
     public void setup() {
         problem = new Problem012();
     }
@@ -20,7 +20,7 @@ public class Problem012Test {
     }
 
     // FIXME
-    @Ignore("it is too slow for travis")
+    @Disabled("it is too slow for travis")
     public void solution() {
         assertEquals(76576500, problem.execute());
     }

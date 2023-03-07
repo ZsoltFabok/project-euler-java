@@ -23,7 +23,7 @@ public class SieveOfEratosthenes {
     }
 
     List<Long> getPrimeNumbers(int upperLimit) {
-        List<Long> numbers = LongStream.range(2, upperLimit).boxed().collect(Collectors.toList());
+        List<Long> numbers = LongStream.range(2, upperLimit).boxed().collect(Collectors.toList()); // NOSONAR (java:S6204)
 
         Data data = new Data();
         data.rest = numbers;
@@ -52,6 +52,6 @@ public class SieveOfEratosthenes {
     }
 
     private static <T> List<T> filter(Predicate<? super T> predicate, List<T> list) {
-        return list.stream().filter(predicate).collect(Collectors.toList());
+        return list.stream().filter(predicate).toList();
     }
 }

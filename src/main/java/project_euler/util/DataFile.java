@@ -5,16 +5,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DataFile {
     public List<String> loadFile(String filename) {
         List<String> content = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
-               content.add(line);
+                content.add(line);
             }
         } catch (IOException exception) {
             // unable to read data file, let the content be empty
@@ -28,6 +26,6 @@ public class DataFile {
 
     public List<List<Integer>> loadNumbers(String data) {
         return new DataFile().loadData(data).stream()
-                .map(Collections::toIntegerList).collect(Collectors.toList());
+                .map(Collections::toIntegerList).toList();
     }
 }
