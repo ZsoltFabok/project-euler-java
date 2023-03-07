@@ -4,7 +4,6 @@ import project_euler.util.DataFile;
 
 import java.math.BigInteger;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
@@ -23,6 +22,6 @@ public class Problem013 {
     }
 
     private List<BigInteger> loadDigits() {
-        return new DataFile().loadData("problem013").stream().map(BigInteger::new).collect(Collectors.toList());
+        return new DataFile().loadData("problem013").stream().map(BigInteger::new).toList();
     }
 }

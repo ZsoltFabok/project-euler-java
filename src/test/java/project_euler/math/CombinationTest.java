@@ -1,21 +1,22 @@
 package project_euler.math;
 
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class CombinationTest {
     private Combination combination;
     private List<Long> numbers;
 
-    @Before
+    @BeforeEach
     public void setup() {
         combination = new Combination();
         numbers = Arrays.asList(2L, 3L, 3L, 7L);

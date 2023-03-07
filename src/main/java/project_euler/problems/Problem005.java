@@ -36,7 +36,7 @@ public class Problem005 extends ProblemDi {
 
         Map<Long, Long> primeFactorsWithOccurrences = new HashMap<>();
 
-        for(int i = 2; i < upperLimit+1; i++) {
+        for (int i = 2; i < upperLimit + 1; i++) {
             Map<Long, Long> p = factors.primeFactors(i);
             p.forEach((k, v) -> {
                 primeFactorsWithOccurrences.putIfAbsent(k, v);

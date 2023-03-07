@@ -1,13 +1,8 @@
 plugins {
-    id "java"
-    // for coverage
-    id "jacoco"
-    // for coveralls.io if it starts to work - until then codecov
-    // id "com.github.kt3k.coveralls" version "2.6.3"
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.2.1'
+    id 'java'
+    id 'jacoco'
+    id 'checkstyle'
+    id 'name.remal.sonarlint' version '3.0.8'
 }
 
 repositories {
@@ -15,15 +10,45 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.inject:guice:3.0'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:2.7.19'
+    implementation 'com.google.inject:guice:3.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testImplementation 'org.mockito:mockito-core:5.1.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
 }
 
-// coveralls
+test {
+    useJUnitPlatform()
+}
+
+checkstyle {
+    configFile = 'checkstyle.xml' as File
+}
+
+sonarLint {
+    isGeneratedCodeIgnored = false
+
+    rules {
+//            enable(
+//                    'java:S100', // Enable `java:S100` rule (that is disabled by default)
+//                    'java:S101', // Enable `java:S101` rule (that is disabled by default)
+//            )
+
+        disable(
+                'java:S5786', // let the test cases have the public modifier
+        )
+
+//            rule('java:S100') {
+//                property('format', '^[a-z][a-zA-Z0-9]*$') // Configure `format` property for `java:S100` rule
+//                properties = ['format': '^[a-z][a-zA-Z0-9]*$'] // `properties` - a mutable map of rule properties
+//            }
+    }
+}
+
 jacocoTestReport {
     reports {
-        xml.enabled = true // coveralls plugin depends on xml format report
-        html.enabled = true
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
+    dependsOn(test)
 }

@@ -10,6 +10,7 @@ public class Problem011 {
         return calculate(4);
     }
 
+    @SuppressWarnings({"java:S3776"})
     public long calculate(int numberOfDigits) {
         List<List<Integer>> data = new DataFile().loadNumbers("problem011");
 
@@ -18,33 +19,26 @@ public class Problem011 {
             for (int j = 0; j < data.get(i).size(); j++) {
                 // try horizontal
                 if (j < data.get(i).size() - numberOfDigits + 1) {
-                    max = max(max, productOfDigits(horizontal(data, i, j, numberOfDigits)));
+                    max = Math.max(max, productOfDigits(horizontal(data, i, j, numberOfDigits)));
                 }
 
                 // try vertical
                 if (i < data.size() - numberOfDigits + 1) {
-                    max = max(max, productOfDigits(vertical(data, i, j, numberOfDigits)));
+                    max = Math.max(max, productOfDigits(vertical(data, i, j, numberOfDigits)));
                 }
 
                 // try diagonal - down to the right
                 if ((i < data.size() - numberOfDigits + 1) && (j < data.get(i).size() - numberOfDigits + 1)) {
-                    max = max(max, productOfDigits(diagonalRightDown(data, i, j, numberOfDigits)));
+                    max = Math.max(max, productOfDigits(diagonalRightDown(data, i, j, numberOfDigits)));
                 }
 
                 // try diagonal - down to the left
                 if ((i < data.size() - numberOfDigits + 1) && (j >= numberOfDigits - 1)) {
-                    max = max(max, productOfDigits(diagonalLeftDown(data, i, j, numberOfDigits)));
+                    max = Math.max(max, productOfDigits(diagonalLeftDown(data, i, j, numberOfDigits)));
                 }
             }
         }
 
-        return max;
-    }
-
-    private static long max(long max, long new_) {
-        if (new_ > max) {
-            return new_;
-        }
         return max;
     }
 

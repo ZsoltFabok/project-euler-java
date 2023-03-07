@@ -16,9 +16,9 @@ public class Problem009 {
 
     /** maybe I could optimize this method, but it reads fine and finishes under 0.5 second */
     public long calculate(int sumOfTriplet) {
-        int a = 1;
-        int b = a + 1;
-        int c = sumOfTriplet - a - b;
+        long a = 1;
+        long b = a + 1;
+        long c = sumOfTriplet - a - b;
         while (!isPythagoreanTriplet(a, b, c)) {
             if (b == sumOfTriplet - 1) {
                 a += 1;
@@ -31,7 +31,7 @@ public class Problem009 {
         return a * b * c;
     }
 
-    private static boolean isPythagoreanTriplet(int a, int b, int c) {
+    private static boolean isPythagoreanTriplet(long a, long b, long c) {
         return a * a + b * b == c * c;
     }
 }

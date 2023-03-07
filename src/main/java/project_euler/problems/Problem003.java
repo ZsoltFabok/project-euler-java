@@ -2,14 +2,9 @@ package project_euler.problems;
 
 
 import project_euler.di.ProblemDi;
-import project_euler.math.prime.PrimeCheck;
 import project_euler.math.prime.PrimeFactors;
-import project_euler.math.prime.PrimeFactory;
-import project_euler.math.prime.PrimeRepository;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 
 /**

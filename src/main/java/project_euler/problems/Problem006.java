@@ -20,7 +20,7 @@ public class Problem006 {
         return calculate(20);
     }
 
-    public long calculate(int upperLimit) {
+    public long calculate(long upperLimit) {
         long sumOfSquares = LongStream.range(1, upperLimit + 1).reduce(0L, (a, b) -> a + b * b);
         long squareOfSum = LongStream.range(1, upperLimit + 1).sum();
         squareOfSum = squareOfSum * squareOfSum;

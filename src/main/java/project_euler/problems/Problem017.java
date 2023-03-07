@@ -22,6 +22,6 @@ public class Problem017 {
     }
 
     private static String removeExtra(String numberInLetters) {
-        return numberInLetters.replaceAll(" ", "").replaceAll("-", "");
+        return numberInLetters.replaceAll("[ -]", "");
     }
 }

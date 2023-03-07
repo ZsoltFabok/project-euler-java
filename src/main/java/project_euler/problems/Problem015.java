@@ -15,7 +15,7 @@ public class Problem015 extends ProblemDi {
         return calculate(20);
     }
 
-    public long calculate(int size) {
+    public long calculate(long size) {
         Combinatorics combinatorics = injector.getInstance(Combinatorics.class);
         return combinatorics.binominalCoefficient(2 * size, size);
     }

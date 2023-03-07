@@ -7,7 +7,7 @@ public abstract class ProblemDi {
 
     protected Injector injector;
 
-    public ProblemDi() {
+    protected ProblemDi() {
         injector = Guice.createInjector(new ModuleDi());
     }
 }

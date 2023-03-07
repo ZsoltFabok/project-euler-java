@@ -16,13 +16,13 @@ public class PrimeDivisors {
         printPrimeDivisors(args[0]);
     }
 
+    @SuppressWarnings({"java:S106", "java:S112"})
     private static void printPrimeDivisors(String filename) {
         PrimeCheck check = new PrimeCheck(null);
         PrimeFactory factory = new PrimeFactory(check, null);
         PrimeFactors factors = new PrimeFactors(factory);
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 Map<Long, Long> f = factors.primeFactors(Long.parseLong(line));

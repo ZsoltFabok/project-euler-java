@@ -31,8 +31,8 @@ public class PrimeCheck {
     /** divides with all the primes that are lower than sqrt(number) */
     private boolean isPseudoPrime(long number) {
         int s = (int) Math.round(Math.sqrt(number));
-        // FIXME here I assume that the cache contains the primes, but what should happen when it does not?
-        for(long divisor : repository.getInRange(2, s)) {
+        // FIXME here I assume that the cache contains the primes, but what should happen when it does not? | NOSONAR
+        for (long divisor : repository.getInRange(2, s)) {
             if (number % divisor == 0) {
                 return true;
             }

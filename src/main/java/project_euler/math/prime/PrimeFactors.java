@@ -20,7 +20,7 @@ public class PrimeFactors {
         Long currentPrime = factory.next();
         Map<Long, Long> primeFactors = new HashMap<>();
 
-        while(number != 1) {
+        while (number != 1) {
             if (number % currentPrime == 0) {
                 increaseInMap(primeFactors, currentPrime);
                 number = number / currentPrime;

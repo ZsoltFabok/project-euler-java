@@ -23,7 +23,7 @@ public class Problem002 {
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(1);
-        while(list.get(list.size()-1) < limit) {
+        while (list.get(list.size() - 1) < limit) {
             list.add(list.get(list.size() - 1) + list.get(list.size() - 2));
         }
         return list;

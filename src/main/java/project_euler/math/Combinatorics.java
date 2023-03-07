@@ -14,7 +14,7 @@ public class Combinatorics {
         this.factorial = factorial;
     }
 
-    public long binominalCoefficient(int n, int k) {
+    public long binominalCoefficient(long n, long k) {
         return factorial(n).divide(factorial(k).multiply(factorial(n - k))).longValue();
     }
 
